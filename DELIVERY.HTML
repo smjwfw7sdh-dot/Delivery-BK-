@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Delivery Las Rastras</title>
+    <style>
+        /* Estilos Base y Variables */
+        :root { --bk-cream: #FAF9E8; --bk-brown: #4A2C2A; --bk-red: #DA291C; --bk-orange: #FF9800; }
+        body { background-color: var(--bk-cream); font-family: 'Arial', sans-serif; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
 
+        /* Contenedores de pantallas */
+        .screen { width: 100%; max-width: 500px; padding: 20px; text-align: center; }
+        #panelControl { display: none; text-align: left; background: white; border: 3px solid var(--bk-brown); border-radius: 16px; padding: 20px; }
+
+        /* Pantalla Inicio */
+        .logo-box { background: white; border: 3px solid var(--bk-brown); padding: 40px; margin-bottom: 30px; border-radius: 12px; }
+        .btn-entrar { background-color: var(--bk-red); color: white; padding: 20px 40px; font-size: 24px; font-weight: bold; border-radius: 8px; cursor: pointer; border: none; }
+
+        /* Estilos del Formulario (tu lógica anterior) */
+        label { display: block; font-weight: bold; margin-top: 15px; }
+        input, select { width: 100%; padding: 10px; margin-top: 5px; border: 2px solid var(--bk-brown); border-radius: 8px; }
+        .btn-delivery { padding: 15px; margin: 5px 0; color: white; cursor: pointer; text-align: center; font-weight: bold; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+    <!-- PANTALLA 1: INICIO -->
+    <div id="pantallaInicio" class="screen">
+        <div class="logo-box">
+            <h2>LOGO BURGER KING</h2>
+        </div>
+        <button class="btn-entrar" onclick="iniciarApp()">ENTRAR</button>
+    </div>
+
+    <!-- PANTALLA 2: PANEL DE CONTROL -->
+    <div id="panelControl" class="screen">
+        <h2 style="color:var(--bk-orange); text-align:center;">EVIDENCIAS DELIVERY</h2>
+        <hr>
+        <label>GERENCIAL DE TURNO:</label>
+        <select id="responsable"><option>Christopher López</option><option>Yennifer Franco</option></select>
+        
+        <label>TURNO:</label>
+        <select id="turno"><option>AM</option><option>PM</option><option>Trasnoche</option></select>
+
+        <label>NÚMERO DE PEDIDO / ORDEN:</label>
+        <input type="text" id="nPedido" placeholder="Ej: #9821">
+
+        <label>INTEGRADOR:</label>
+        <div class="btn-delivery" style="background:#D81B60;" onclick="abrirDrive('Peya')">PedidosYa</div>
+        <div class="btn-delivery" style="background:#FF5722;" onclick="abrirDrive('Rappi')">Rappi</div>
+        <div class="btn-delivery" style="background:#000;" onclick="abrirDrive('Uber')">Uber Eats</div>
+
+        <button class="btn-entrar" style="width:100%; margin-top:20px; font-size:16px;" onclick="registrar()">REGISTRAR Y ABRIR DRIVE</button>
+    </div>
+
+    <script>
+        function iniciarApp() {
+            document.getElementById('pantallaInicio').style.display = 'none';
+            document.getElementById('panelControl').style.display = 'block';
+        }
+
+        function abrirDrive(integrador) {
+            alert("Abriendo carpeta de: " + integrador);
+            // Aquí puedes poner window.open("tu_link_drive");
+        }
+
+        function registrar() {
+            alert("Registro guardado con éxito.");
+        }
+    </script>
+</body>
+</html>
